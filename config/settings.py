@@ -24,7 +24,7 @@ if ENVIRONMENT == "development":
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOST = ["*"]
 
 
 # Application definition
