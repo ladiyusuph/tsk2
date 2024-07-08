@@ -36,24 +36,24 @@ def custom_id():
 class CustomUser(AbstractUser):
     username = None
     userId = models.CharField(max_length=11, unique=True, default=custom_id)
-    first_name = models.CharField(max_length=255, null=False)
-    last_name = models.CharField(max_length=255, null=False)
+    firstName = models.CharField(max_length=255, null=False)
+    lastName = models.CharField(max_length=255, null=False)
     email = models.EmailField(unique=True, null=False)
     phone = models.CharField(max_length=15, blank=True, null=True)
 
     objects = CustomUserManager()
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["first_name", "last_name"]
+    REQUIRED_FIELDS = ["firstName", "lastName"]
 
     def __str__(self):
-        return self.first_name
+        return self.firstName
 
 
 @receiver(post_save, sender=CustomUser)
 def create_org(sender, instance, **kwargs):
     if not instance.organisations.exists():  # Ensure it's a new user
-        org_name = f"{instance.first_name}'s Organisation"
+        org_name = f"{instance.firstName}'s Organisation"
         org = Organisation.objects.create(name=org_name)
         org.users.add(instance)
         org.save()

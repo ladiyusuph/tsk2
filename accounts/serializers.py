@@ -9,14 +9,14 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 class CustomUserSerializer(ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "email", "password", "phone"]
+        fields = ["firstName", "lastName", "email", "password", "phone"]
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
         try:
             user = CustomUser.objects.create(
-                first_name=validated_data.get("first_name"),
-                last_name=validated_data.get("last_name"),
+                firstName=validated_data.get("firstName"),
+                lastName=validated_data.get("lastName"),
                 email=validated_data.get("email"),
                 phone=validated_data.get("phone", ""),
             )

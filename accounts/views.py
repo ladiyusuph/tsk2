@@ -28,8 +28,8 @@ class RegisterAPI(generics.GenericAPIView):
                         "accessToken": tokens.get("access"),
                         "user": {
                             "userId": user.userId,
-                            "firstName": serializer.data["first_name"],
-                            "lastName": serializer.data["last_name"],
+                            "firstName": serializer.data["firstName"],
+                            "lastName": serializer.data["lastName"],
                             "email": serializer.data["email"],
                             "phone": serializer.data["phone"],
                         },
@@ -64,8 +64,8 @@ class LoginView(APIView):
                         "accessToken": tokens.get("access"),
                         "user": {
                             "userId": user.userId,
-                            "firstName": user.first_name,
-                            "lastName": user.last_name,
+                            "firstName": user.firstName,
+                            "lastName": user.lastName,
                             "email": user.email,
                             "phone": (
                                 user.phone_number
@@ -101,8 +101,8 @@ class UserDetail(generics.RetrieveAPIView):
             "message": "The user was retrieved successfully",
             "data": {
                 "userId": user.userId,
-                "firstName": user.first_name,
-                "lastName": user.last_name,
+                "firstName": user.firstName,
+                "lastName": user.lastName,
                 "email": user.email,
                 "phone": user.phone if hasattr(user, "phone") else None,
             },
