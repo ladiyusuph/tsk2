@@ -24,7 +24,7 @@ if ENVIRONMENT == "development":
 else:
     DEBUG = False
 
-ALLOWED_HOST = ["*"]
+ALLOWED_HOSTS = ["tsk2-production.up.railway.app", "localhost", "127.0.0.1"]
 
 
 # Application definition
