@@ -140,7 +140,7 @@ ENV/
 env.bak/
 venv.bak/
 .env-deploy
-
+.env*
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -265,5 +265,3 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,django
-
-migrations/

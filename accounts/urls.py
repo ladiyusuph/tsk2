@@ -7,15 +7,15 @@ from rest_framework_simplejwt.views import (
 from . import views
 
 urlpatterns = [
-    path("register/", views.RegisterAPI.as_view(), name="register"),
-    path("login/", views.LoginView.as_view(), name="login"),
+    path("auth/register/", views.RegisterAPI.as_view(), name="register"),
+    path("auth/login/", views.LoginView.as_view(), name="login"),
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("token/verify/", TokenVerifyView.as_view(), name="token_verify"),
     path("users/<int:pk>/", views.UserDetail.as_view(), name="user_detail"),
-    path("organizations/", views.UserOrganizations.as_view(), name="organization_list"),
+    path("organisations/", views.UserOrganizations.as_view(), name="organization_list"),
     path(
-        "organizations/<str:orgId>/", views.get_organization, name="organization_detail"
+        "organisations/<str:orgId>/", views.get_organization, name="organization_detail"
     ),
     path("create-organization/", views.create_organization, name="create_org"),
     path(
